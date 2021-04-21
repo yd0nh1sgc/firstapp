@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sample_first_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hub-pR-O28">
+                                <rect key="frame" x="173" y="28" width="255" height="406"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food &amp; Tast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu9-CP-nfk">
+                                        <rect key="frame" x="81" y="0.0" width="92" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Jv2-qM-v8w"/>
+                                            <constraint firstAttribute="width" constant="92" id="vc2-2E-qd4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input anything about your Food." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZO0-ny-prK">
+                                        <rect key="frame" x="14" y="41" width="227" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="YhF-BA-cbc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL6-qb-kTp">
+                                        <rect key="frame" x="35" y="91" width="185" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.46998814620000001" blue="0.15875061460000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="185" id="31v-sS-cP0"/>
+                                            <constraint firstAttribute="height" constant="40" id="xfa-b4-Bra"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Input Text and Image"/>
+                                        <connections>
+                                            <action selector="inputTextBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NIr-IS-DrO"/>
+                                        </connections>
+                                    </button>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePickerBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="I62-bu-wpJ">
+                                        <rect key="frame" x="0.0" y="151" width="255" height="255"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="255" id="1jx-1T-k00"/>
+                                            <constraint firstAttribute="height" constant="255" id="mgw-Ce-XfZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="c6Q-hs-euf" appends="YES" id="dn3-0E-PFQ"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hub-pR-O28" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="jZp-nA-fUm"/>
+                            <constraint firstItem="hub-pR-O28" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lCU-QY-Ocb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="foodNameLbl" destination="Zu9-CP-nfk" id="dFI-Un-Sxj"/>
+                        <outlet property="foodNameTextField" destination="ZO0-ny-prK" id="U4n-ty-i6p"/>
+                        <outlet property="imageView" destination="I62-bu-wpJ" id="FX2-aj-268"/>
+                        <outlet property="inputBtn" destination="GL6-qb-kTp" id="vK5-8v-GKN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="c6Q-hs-euf">
+                    <connections>
+                        <action selector="imgPicker:" destination="BYZ-38-t0r" id="Sj9-v7-mPU"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="283" y="380"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="imagePickerBackGround" width="255" height="255"/>
+    </resources>
+</document>
