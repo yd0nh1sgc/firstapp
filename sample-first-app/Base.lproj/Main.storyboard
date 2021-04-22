@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bHv-WL-aSC">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,16 +20,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hub-pR-O28">
-                                <rect key="frame" x="173" y="28" width="255" height="406"/>
+                                <rect key="frame" x="173" y="28" width="255" height="480"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food &amp; Tast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu9-CP-nfk">
-                                        <rect key="frame" x="81" y="0.0" width="92" height="21"/>
+                                        <rect key="frame" x="82" y="0.0" width="92" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Jv2-qM-v8w"/>
                                             <constraint firstAttribute="width" constant="92" id="vc2-2E-qd4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input anything about your Food." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZO0-ny-prK">
@@ -62,13 +64,21 @@
                                             <outletCollection property="gestureRecognizers" destination="c6Q-hs-euf" appends="YES" id="dn3-0E-PFQ"/>
                                         </connections>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao4-MF-2of">
+                                        <rect key="frame" x="0.0" y="426" width="255" height="54"/>
+                                        <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="ao4-MF-2of" firstAttribute="leading" secondItem="I62-bu-wpJ" secondAttribute="leading" id="JhM-0x-HOX"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hub-pR-O28" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="jZp-nA-fUm"/>
                             <constraint firstItem="hub-pR-O28" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lCU-QY-Ocb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hub-pR-O28" secondAttribute="bottom" constant="92" id="m0E-D6-LVB"/>
                         </constraints>
                     </view>
                     <connections>
@@ -85,10 +95,75 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="283" y="380"/>
+            <point key="canvasLocation" x="772" y="411"/>
+        </scene>
+        <!--Food OrderVC-->
+        <scene sceneID="zq4-3u-LCA">
+            <objects>
+                <tableViewController id="bHv-WL-aSC" customClass="FoodOrderVC" customModule="sample_first_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="iPA-jY-RvV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" rowHeight="100" id="sLM-wv-UfG" customClass="FoodViewCell" customModule="sample_first_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sLM-wv-UfG" id="39F-Il-RHO">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H95-tX-8tF">
+                                            <rect key="frame" x="115" y="8" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNb-JP-eMZ">
+                                            <rect key="frame" x="184" y="8" width="87" height="84"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1" translatesAutoresizingMaskIntoConstraints="NO" id="mN1-IW-Bmp">
+                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="5Fl-Xz-plJ"/>
+                                                <constraint firstAttribute="width" constant="100" id="6g8-qf-5qw"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="H95-tX-8tF" firstAttribute="top" secondItem="39F-Il-RHO" secondAttribute="topMargin" id="1IU-g8-DOQ"/>
+                                        <constraint firstItem="H95-tX-8tF" firstAttribute="leading" secondItem="mN1-IW-Bmp" secondAttribute="trailing" constant="7" id="4FE-M8-HWV"/>
+                                        <constraint firstItem="mN1-IW-Bmp" firstAttribute="top" secondItem="39F-Il-RHO" secondAttribute="top" id="FbY-A3-Gah"/>
+                                        <constraint firstItem="H95-tX-8tF" firstAttribute="firstBaseline" secondItem="PNb-JP-eMZ" secondAttribute="firstBaseline" id="RZm-kx-fVC"/>
+                                        <constraint firstItem="PNb-JP-eMZ" firstAttribute="leading" secondItem="H95-tX-8tF" secondAttribute="trailing" constant="24" id="Vhs-Uw-Mb3"/>
+                                        <constraint firstItem="mN1-IW-Bmp" firstAttribute="leading" secondItem="39F-Il-RHO" secondAttribute="leadingMargin" id="bxb-8I-VJP"/>
+                                        <constraint firstItem="mN1-IW-Bmp" firstAttribute="centerY" secondItem="PNb-JP-eMZ" secondAttribute="centerY" id="yTz-g3-XdT"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="foodDescriptLbl" destination="PNb-JP-eMZ" id="4fh-ac-Tiz"/>
+                                    <outlet property="foodNameLbl" destination="H95-tX-8tF" id="YJI-bD-9mL"/>
+                                    <outlet property="foodPhoto" destination="mN1-IW-Bmp" id="WeE-TA-sVd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bHv-WL-aSC" id="qKt-Vm-Gv7"/>
+                            <outlet property="delegate" destination="bHv-WL-aSC" id="7g2-qj-89t"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S16-vC-95U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="448"/>
         </scene>
     </scenes>
     <resources>
         <image name="imagePickerBackGround" width="255" height="255"/>
+        <image name="meal1" width="41" height="51"/>
     </resources>
 </document>
