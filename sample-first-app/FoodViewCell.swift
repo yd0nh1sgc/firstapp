@@ -12,7 +12,6 @@ class FoodViewCell: UITableViewCell {
 
     @IBOutlet weak var foodPhoto: UIImageView!
     @IBOutlet weak var foodNameLbl: UILabel!
-    @IBOutlet weak var foodDescriptLbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

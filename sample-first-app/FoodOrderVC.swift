@@ -30,13 +30,13 @@ class FoodOrderVC: UITableViewController {
     
     func loadFood() {
         let photo1 = UIImage(named: "meal1")
-        let food1 = Meal(name: "", photo: photo1!, rate: 4)
+        let food1 = Meal(name: "Globle", photo: photo1!, rate: 4)
         
         let photo2 = UIImage(named: "meal2")
-        let food2 = Meal(name: "", photo: photo2!, rate: 5)
+        let food2 = Meal(name: "Train", photo: photo2!, rate: 5)
         
         let photo3 = UIImage(named: "meal3")
-        let food3 = Meal(name: "", photo: photo3!, rate: 3)
+        let food3 = Meal(name: "Bag", photo: photo3!, rate: 3)
         
         
         self.foodsArray = self.foodsArray + [food1, food2, food3]
@@ -58,7 +58,10 @@ class FoodOrderVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return self.foodsArray.count
     }
-
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("foodCell", forIndexPath: indexPath) as! FoodViewCell
@@ -66,7 +69,6 @@ class FoodOrderVC: UITableViewController {
         let meal = self.foodsArray[indexPath.row]
         // Configure the cell...
         cell.foodNameLbl.text = meal.foodName
-        cell.foodDescriptLbl.text = "waiting for add"
         cell.foodPhoto.image = meal.foodPhoto
 
         return cell
