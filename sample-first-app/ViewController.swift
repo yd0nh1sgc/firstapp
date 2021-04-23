@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         foodNameTextField.delegate = self
         inputBtn.layer.cornerRadius = 5
         
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -16,6 +16,9 @@ class FoodViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        foodPhoto.clipsToBounds = true
+        
+        // 解决图片超出边界的问题
         // Initialization code
     }
 

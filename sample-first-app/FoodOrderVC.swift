@@ -29,13 +29,13 @@ class FoodOrderVC: UITableViewController {
     
     
     func loadFood() {
-        let photo1 = UIImage(named: "meal1")
+        let photo1 = UIImage(named: "meal4")
         let food1 = Meal(name: "Globle", photo: photo1!, rate: 4)
         
-        let photo2 = UIImage(named: "meal2")
+        let photo2 = UIImage(named: "meal5")
         let food2 = Meal(name: "Train", photo: photo2!, rate: 5)
         
-        let photo3 = UIImage(named: "meal3")
+        let photo3 = UIImage(named: "meal6")
         let food3 = Meal(name: "Bag", photo: photo3!, rate: 3)
         
         
