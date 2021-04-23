@@ -16,6 +16,7 @@
 		114BEE441CDB97750081316D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114BEE431CDB97750081316D /* Assets.xcassets */; };
 		114BEE471CDB97750081316D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114BEE451CDB97750081316D /* LaunchScreen.storyboard */; };
 		115B74781CDC766C00980B0D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115B74771CDC766C00980B0D /* RatingControl.swift */; };
+		1197030C1CDCFB6D00D64D45 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197030B1CDCFB6D00D64D45 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		114BEE461CDB97750081316D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		114BEE481CDB97750081316D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115B74771CDC766C00980B0D /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		1197030B1CDCFB6D00D64D45 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				113DA7E01CDC336A007141B8 /* Meal.swift */,
 				113DA7E21CDC3683007141B8 /* FoodOrderVC.swift */,
 				113DA7E41CDC36A9007141B8 /* FoodViewCell.swift */,
+				1197030B1CDCFB6D00D64D45 /* RatingView.swift */,
 			);
 			path = "sample-first-app";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				114BEE3F1CDB97750081316D /* ViewController.swift in Sources */,
 				115B74781CDC766C00980B0D /* RatingControl.swift in Sources */,
 				114BEE3D1CDB97750081316D /* AppDelegate.swift in Sources */,
+				1197030C1CDCFB6D00D64D45 /* RatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
