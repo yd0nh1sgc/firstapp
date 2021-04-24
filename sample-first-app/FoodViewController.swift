@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FoodViewController.swift
 //  sample-first-app
 //
 //  Created by 安爹的Mac on 16/5/5.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var foodNameLbl: UILabel!
     @IBOutlet weak var foodNameTextField: UITextField!

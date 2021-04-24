@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bHv-WL-aSC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ENs-eQ-kIk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Food View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sample_first_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FoodViewController" customModule="sample_first_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -53,7 +53,7 @@
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePickerBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="I62-bu-wpJ">
-                                        <rect key="frame" x="0.0" y="151" width="255" height="255"/>
+                                        <rect key="frame" x="0.0" y="151" width="255" height="281"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="255" id="1jx-1T-k00"/>
@@ -63,9 +63,13 @@
                                             <outletCollection property="gestureRecognizers" destination="c6Q-hs-euf" appends="YES" id="dn3-0E-PFQ"/>
                                         </connections>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao4-MF-2of">
-                                        <rect key="frame" x="0.0" y="426" width="255" height="54"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao4-MF-2of" customClass="RatingView" customModule="sample_first_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="452" width="255" height="28"/>
                                         <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="255" id="QG8-nY-Vip"/>
+                                            <constraint firstAttribute="height" constant="28" id="ups-hf-2Sf"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -94,9 +98,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="753" y="443"/>
+            <point key="canvasLocation" x="1485" y="436"/>
         </scene>
-        <!--Food OrderVC-->
+        <!--Your Meals-->
         <scene sceneID="zq4-3u-LCA">
             <objects>
                 <tableViewController id="bHv-WL-aSC" customClass="FoodOrderVC" customModule="sample_first_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,7 +110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" rowHeight="120" id="sLM-wv-UfG" customClass="FoodViewCell" customModule="sample_first_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="120"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sLM-wv-UfG" id="39F-Il-RHO">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
@@ -127,12 +131,12 @@
                                             </variation>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal1" translatesAutoresizingMaskIntoConstraints="NO" id="mN1-IW-Bmp">
-                                            <rect key="frame" x="8" y="0.0" width="120" height="120"/>
+                                            <rect key="frame" x="8" y="0.0" width="118" height="118"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="5Fl-Xz-plJ"/>
                                                 <constraint firstAttribute="width" constant="100" id="6g8-qf-5qw"/>
-                                                <constraint firstAttribute="height" constant="120" id="IPx-tg-IGz"/>
-                                                <constraint firstAttribute="width" constant="120" id="Yd3-RC-cpD"/>
+                                                <constraint firstAttribute="height" constant="118" id="IPx-tg-IGz"/>
+                                                <constraint firstAttribute="width" constant="118" id="Yd3-RC-cpD"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -142,7 +146,7 @@
                                             </variation>
                                         </imageView>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="wQx-T7-PdS" customClass="RatingView" customModule="sample_first_app" customModuleProvider="target">
-                                            <rect key="frame" x="136" y="81" width="240" height="20"/>
+                                            <rect key="frame" x="134" y="81" width="240" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="FXF-z1-RPb"/>
                                                 <constraint firstAttribute="height" constant="38" id="deY-xB-sxh"/>
@@ -214,10 +218,35 @@
                             <outlet property="delegate" destination="bHv-WL-aSC" id="7g2-qj-89t"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Meals" id="oeR-vz-OMT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f7e-Kq-cGh">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="lRC-5y-Olt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S16-vC-95U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="443"/>
+            <point key="canvasLocation" x="824" y="443"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xKb-oi-1ke">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ENs-eQ-kIk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d4g-LL-Cmb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bHv-WL-aSC" kind="relationship" relationship="rootViewController" id="LUL-Zy-MsE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOW-9G-tNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="443"/>
         </scene>
     </scenes>
     <resources>
