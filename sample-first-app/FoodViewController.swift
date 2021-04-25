@@ -11,27 +11,31 @@ import UIKit
 class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var foodNameTextField: UITextField!
-    @IBOutlet weak var inputBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     @IBOutlet weak var ratingControl: RatingView!
+    @IBOutlet weak var contentField: UITextView!
     
     var meal: Meal?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("time to load")
         foodNameTextField.delegate = self
         if let meal = meal {
+            print(meal.foodName)
             navigationItem.title = meal.foodName
             foodNameTextField.text = meal.foodName
+            contentField.text = meal.foodContent
             imageView.image = meal.foodPhoto
             ratingControl.rating = meal.rate
         }
-        inputBtn.layer.cornerRadius = 5
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
+        contentField.layer.borderWidth = 1
+        contentField.layer.cornerRadius = 5
+        contentField.layer.borderColor = UIColor.grayColor().CGColor
         checkValidMealName()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -70,6 +74,7 @@ class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
     // 控制app软键盘return后自动收回
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         foodNameTextField.resignFirstResponder()
+        // contentField.resignFirstResponder()
         return true
     }
     
@@ -91,19 +96,15 @@ class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
             let name = foodNameTextField.text ?? ""
             let photo = imageView.image
             let rating = ratingControl.rating
+            let content = contentField.text
             
-            meal = Meal(name: name, photo: photo!, rate: rating)
+            meal = Meal(name: name,content: content, photo: photo!, rate: rating)
         }
     }
     
     
     
     // MARK: Action
-    @IBAction func inputTextBtn(sender: AnyObject) {
-        print("按钮被按下")
-
-        
-    }
 
     @IBAction func imgPicker(sender: AnyObject) {
         //手势响应

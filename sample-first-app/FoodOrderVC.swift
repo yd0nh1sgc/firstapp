@@ -35,19 +35,24 @@ class FoodOrderVC: UITableViewController {
     // 调用模板函数
     func loadFood() {
         let photo1 = UIImage(named: "meal7")
-        let food1 = Meal(name: "日式经典沙拉", photo: photo1!, rate: 4)
+        let content1 = "口味不同，日式沙拉酱有点甜（一般吃生的海鲜用），法式沙拉酱奶味重（水果沙拉适合用，沙拉酱分类：1.做肉类沙拉的2.做蔬菜类沙拉的3.做水果沙拉的"
+        let food1 = Meal(name: "日式经典沙拉",content: content1, photo: photo1!, rate: 4)
         
         let photo2 = UIImage(named: "meal8")
-        let food2 = Meal(name: "海鲜寿司拼盘", photo: photo2!, rate: 5)
+        let content2 = "吃到令客人满足的好吃寿司,粉丝数量~UP UP。然后就会发现新的设备的食材。不要只满足于经典菜单哟、组合材料可以做出独创的寿司！把「乌贼」和「紫苏」，「鳗鱼」和「黄瓜」组合起来吧！"
+        let food2 = Meal(name: "海鲜寿司拼盘",content: content2, photo: photo2!, rate: 5)
         
         let photo3 = UIImage(named: "meal9")
-        let food3 = Meal(name: "海鲜胡萝卜寿司", photo: photo3!, rate: 3)
+        let content3 = "1 胡萝卜，火腿切丝（要切细一点），胡萝卜用水煮一下至微软,否则不怎么好吃 2 把熟了的饭拌上寿司醋，薄薄的铺在海苔上，（盖过饭即可，否则太粗） 3 把熟了的饭拌上寿司醋，薄薄的铺在海苔上，摆上胡萝卜什么的，挤上沙拉酱，裹起来，最后切好装盘，做装饰。 OK，大功告成~"
+        let food3 = Meal(name: "海鲜胡萝卜寿司",content: content3, photo: photo3!, rate: 3)
 
         let photo4 = UIImage(named: "meal10")
-        let food4 = Meal(name: "生煎三文鱼", photo: photo4!, rate: 5)
+        let content4 = "主料：鲜三文鱼500克,橄榄油适量。调料：（1）葱姜水,盐,玫瑰露酒石酸各适量。（2）哈密瓜汁,葡萄汁,白醋,吉士粉,香菜,盐,白糖各适量。"
+        let food4 = Meal(name: "生煎三文鱼",content: content4, photo: photo4!, rate: 5)
         
         let photo5 = UIImage(named: "meal11")
-        let food5 = Meal(name: "鲜果鱼子酱", photo: photo5!, rate: 4)
+        let content5 = "看上去是颗颗透明的“鱼子酱”，咬下去却是蜜瓜汁的味道。"
+        let food5 = Meal(name: "鲜果鱼子酱",content: content5, photo: photo5!, rate: 4)
         
         // self.foodsArray += [food1!, food2!, food3!, food4!, food5!]
         // 变换一种增加数组元素的方式
@@ -138,7 +143,10 @@ class FoodOrderVC: UITableViewController {
         
         if segue.identifier == "ShowDetail" {
             print("try display detail")
-            let foodDetailViewController = segue.destinationViewController as! FoodViewController
+            // 此处与原程序有区别，查询stackoverflow，有答案
+            // http://stackoverflow.com/questions/28573635/destinationviewcontroller-segue-and-uinavigationcontroller-swift
+            let nav = segue.destinationViewController as! UINavigationController
+            let foodDetailViewController = nav.topViewController as! DetailViewController
 
             if let selectedFoodCell = sender as? FoodViewCell {
                 let indexPath = tableView.indexPathForCell(selectedFoodCell)!
