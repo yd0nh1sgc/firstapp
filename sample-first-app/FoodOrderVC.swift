@@ -19,8 +19,14 @@ class FoodOrderVC: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem()
         
-        self.loadFood()
-        
+        // if let savedMeals = loadMeals() {
+        if loadMeals()?.count > 0 {
+            let savedMeals = loadMeals()!
+            print("Ns数量\(savedMeals.count)")
+            foodsArray += savedMeals
+        } else {
+            self.loadFood()
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,17 +37,27 @@ class FoodOrderVC: UITableViewController {
     
     
     func loadFood() {
-        let photo1 = UIImage(named: "meal4")
-        let food1 = Meal(name: "Globle", photo: photo1!, rate: 4)
+        let photo1 = UIImage(named: "meal7")
+        let food1 = Meal(name: "日式经典沙拉", photo: photo1!, rate: 4)
         
-        let photo2 = UIImage(named: "meal5")
-        let food2 = Meal(name: "Train", photo: photo2!, rate: 5)
+        let photo2 = UIImage(named: "meal8")
+        let food2 = Meal(name: "海鲜寿司拼盘", photo: photo2!, rate: 5)
         
-        let photo3 = UIImage(named: "meal6")
-        let food3 = Meal(name: "Bag", photo: photo3!, rate: 3)
+        let photo3 = UIImage(named: "meal9")
+        let food3 = Meal(name: "海鲜胡萝卜寿司", photo: photo3!, rate: 3)
+
+        let photo4 = UIImage(named: "meal10")
+        let food4 = Meal(name: "生煎三文鱼", photo: photo4!, rate: 5)
         
+        let photo5 = UIImage(named: "meal11")
+        let food5 = Meal(name: "鲜果鱼子酱", photo: photo5!, rate: 4)
         
-        self.foodsArray += [food1, food2, food3]
+        // self.foodsArray += [food1, food2, food3]
+        self.foodsArray.append(food1!)
+        self.foodsArray.append(food2!)
+        self.foodsArray.append(food3!)
+        self.foodsArray.append(food4!)
+        self.foodsArray.append(food5!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +88,7 @@ class FoodOrderVC: UITableViewController {
         // Configure the cell...
         cell.foodNameLbl.text = meal.foodName
         cell.foodPhoto.image = meal.foodPhoto
-        cell.ratingView.rating = meal.rate!
+        cell.ratingView.rating = meal.rate
 
         return cell
     }
@@ -93,6 +109,7 @@ class FoodOrderVC: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             foodsArray.removeAtIndex(indexPath.row)
+            saveMeals()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -145,13 +162,28 @@ class FoodOrderVC: UITableViewController {
                 foodsArray[selectedIndexPath.row] = meal
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
             } else {
-            let newIndexPath = NSIndexPath(forRow: foodsArray.count, inSection: 0)
-            foodsArray.append(meal)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                
+                let newIndexPath = NSIndexPath(forRow: foodsArray.count, inSection: 0)
+                foodsArray.append(meal)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                saveMeals()
             }
         }
     }
     
+    // MARK: NScoding
+    
+    func saveMeals() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(foodsArray, toFile: Meal.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save meals...")
+        }
+        
+    }
+    
+    func loadMeals() -> [Meal]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]
+    }
     
 
 }

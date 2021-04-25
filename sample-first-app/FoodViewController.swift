@@ -27,7 +27,7 @@ class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
             navigationItem.title = meal.foodName
             foodNameTextField.text = meal.foodName
             imageView.image = meal.foodPhoto
-            ratingControl.rating = meal.rate!
+            ratingControl.rating = meal.rate
         }
         inputBtn.layer.cornerRadius = 5
         imageView.layer.cornerRadius = 5
