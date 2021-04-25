@@ -20,6 +20,7 @@ class FoodOrderVC: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem()
         
         // if let savedMeals = loadMeals() {
+        // 调整初始化状态，如果NSobject长度为0，则调用模板
         if loadMeals()?.count > 0 {
             let savedMeals = loadMeals()!
             print("Ns数量\(savedMeals.count)")
@@ -28,14 +29,10 @@ class FoodOrderVC: UITableViewController {
             self.loadFood()
         }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     
+    // 调用模板函数
     func loadFood() {
         let photo1 = UIImage(named: "meal7")
         let food1 = Meal(name: "日式经典沙拉", photo: photo1!, rate: 4)
@@ -52,7 +49,8 @@ class FoodOrderVC: UITableViewController {
         let photo5 = UIImage(named: "meal11")
         let food5 = Meal(name: "鲜果鱼子酱", photo: photo5!, rate: 4)
         
-        // self.foodsArray += [food1, food2, food3]
+        // self.foodsArray += [food1!, food2!, food3!, food4!, food5!]
+        // 变换一种增加数组元素的方式
         self.foodsArray.append(food1!)
         self.foodsArray.append(food2!)
         self.foodsArray.append(food3!)
@@ -68,22 +66,22 @@ class FoodOrderVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.foodsArray.count
     }
     
+    /*
+    // 该方法实现调整TableView上边距
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
-    }
+    }*/
 
+    // 定义单个cell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("foodCell", forIndexPath: indexPath) as! FoodViewCell
-        
         let meal = self.foodsArray[indexPath.row]
         // Configure the cell...
         cell.foodNameLbl.text = meal.foodName
@@ -172,7 +170,7 @@ class FoodOrderVC: UITableViewController {
     }
     
     // MARK: NScoding
-    
+    // 定义数据保存和加载方法
     func saveMeals() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(foodsArray, toFile: Meal.ArchiveURL.path!)
         if !isSuccessfulSave {

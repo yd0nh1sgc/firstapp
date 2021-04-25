@@ -45,26 +45,29 @@ class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         super.viewDidAppear(animated)
     }
     
-    
+    // MARK: Define textField
     func textFieldDidBeginEditing(textField: UITextField) {
-        //Textfield控件方法
+        //Textfield开始编辑
         print("begining")
         saveBtn.enabled = false
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        // textfield控件结束编辑
         print("ending")
         checkValidMealName()
         navigationItem.title = textField.text
 
     }
     
+    // MARK: define examin function
     func checkValidMealName(){
         let text = foodNameTextField.text ?? ""
         saveBtn.enabled = !text.isEmpty
     }
     
     
+    // 控制app软键盘return后自动收回
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         foodNameTextField.resignFirstResponder()
         return true
@@ -82,6 +85,7 @@ class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
     }
     
     
+    // 在通过segue 跳转后，传递参数到新的ViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveBtn === sender {
             let name = foodNameTextField.text ?? ""
@@ -112,6 +116,7 @@ class FoodViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         }
     }
     
+    // 触摸响应必须实现的方法
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
         

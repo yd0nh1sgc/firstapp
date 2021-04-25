@@ -18,7 +18,7 @@ class RatingView: UIView {
     var ratingButtons = [UIButton]()
     let spacing = 5
     let startCount = 5
-    let stars = 5
+    let stars = 5 // Apple原教程中此处有点问题
     
     //MARK: 初始化类
     required init?(coder aDecoder: NSCoder) {
