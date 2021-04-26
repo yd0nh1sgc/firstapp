@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="麦子学院 IOS20160510 学习作品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdw-Ev-Ebs">
+                                <rect key="frame" x="20" y="559" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="VDf-3b-Kgy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal9" translatesAutoresizingMaskIntoConstraints="NO" id="5PX-p3-PAK">
+                                <rect key="frame" x="180" y="177" width="240" height="246"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3OJ-F7-AJB"/>
+                                    <constraint firstAttribute="height" constant="246" id="wrW-iB-FW6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5PX-p3-PAK" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="157" id="3ie-Vg-BuB"/>
+                            <constraint firstItem="5PX-p3-PAK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="160" id="LJF-XO-d3j"/>
+                            <constraint firstItem="5PX-p3-PAK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="O7i-wl-8cd"/>
+                            <constraint firstAttribute="trailing" secondItem="Zdw-Ev-Ebs" secondAttribute="trailing" constant="20" id="iRn-85-B70"/>
+                            <constraint firstItem="Zdw-Ev-Ebs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="irC-Nx-qZk"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Zdw-Ev-Ebs" secondAttribute="bottom" constant="20" id="ntW-1N-cG5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5PX-p3-PAK" secondAttribute="trailing" constant="160" id="vhi-5b-N8B"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LJF-XO-d3j"/>
+                                <exclude reference="vhi-5b-N8B"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +58,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="meal9" width="474" height="474"/>
+    </resources>
 </document>
