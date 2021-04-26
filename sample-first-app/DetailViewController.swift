@@ -26,12 +26,14 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             ratingView.rating = meal.rate
             contentLbl.text = meal.foodContent
         }
-
+        
+        imageView.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+
         // Dispose of any resources that can be recreated.
     }
     
